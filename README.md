@@ -104,3 +104,30 @@ Moving forward, in addition to utilizing greater computing power, I believe that
 
 
 
+## Repository Navigation 
+#### *Final Notebook*
+
+      Final_CNN_Histopathology_Notebook_Capstone.ipynb
+      
+      
+      
+#### *Presentation*
+
+      Capstone CNN Pathology Presentation.pdf
+      
+      
+#### *Working Notebooks*
+
+      Capstone_EDA.ipynb
+      
+      Capstone_Final_CNN_Histopathology_notebook.ipynb
+      
+      Copy_of_Capstone_working_notebook.ipynb
+      
+      
+      
+#### *img* 
+
+#### .gitignore
+
+#### README.md
