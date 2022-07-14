@@ -6,14 +6,10 @@
 ## Overview 
 
 
----
-
-
 This repository presents a deep learning approach (Convolutional Neural Network - CNN) for automatic detection, visual analysis, and classification of invasive ductal carcinoma (IDC) tissue regions in whole slide images (WSI) of breast cancer.
 
 ## Business Problem 
 
---- 
 
 Invasive breast cancer detection is a tedious and difficult task. Like searching for a needle in a haystack, a pathologist must scan vast stretches of benign regions to (maybe) identify a small plot of malignancy within. Accurate and precise identification of IDC tissue regions is critical for the subsequent tumor aggression and patient outcome calculations and predictions. 
 
@@ -36,7 +32,6 @@ After discussing their problems, and the available data, we created the followin
 
 ## Data Understanding 
 
----
 According to Kaggle, the original dataset consisted of 162 whole mount slide images of Breast Cancer (BCa) specimens scanned at 40x. From that, 277,524 patches of size 50 x 50 were extracted (198,738 IDC negative and 78,786 IDC positive). Each patch’s file name is of the format: uxXyYclassC.png — > example 10253idx5x1351y1101class0.png . Where u is the patient ID (10253idx5), X is the x-coordinate of where this patch was cropped from, Y is the y-coordinate of where this patch was cropped from, and C indicates the class where 0 is non-IDC and 1 is IDC.
 
 In order to create a digestible size of data, I randomly selected images and randomly sorted them into my Test, Train, and Validation sets, each containing two subset folders: Cancer and Normal. 
@@ -59,14 +54,12 @@ In total, there were 3,781 Normal image scans and 4,172 Cancer image scans. I bu
 
 ## Methodology and Results 
 
----
 
 ### Model 1: Logistic Regression (Simple Baseline Model) 
 After exploring the data and building in extra data generation/image augmentation, the first model I created was a simple logistic regression model. A Logistic regression model estimates the probability of an event occurring, "cancerous" or "normal". This scored surprisingly well, at 83% accuracy and 78% recall. 
 
 ![logistic_regression](https://user-images.githubusercontent.com/102309439/178885112-ad253ea0-f07d-45f8-8374-4e2006191058.png)
 
----
 
 ### Model 2: Baseline CNN Model  
 ![model_2_cnn_baseline](https://user-images.githubusercontent.com/102309439/178885180-e7fd2dce-e21d-453a-a79f-f22dca0e5443.png)
@@ -75,7 +68,6 @@ Moving into deep learning models, the baseline convolution neural network produc
 
 This could be due to the nature of my data split. In order to create a digestible data size I randomly selected samples from only a few (4-6) patients for my test set, which may have been easier to classify than the entire population(15-20 patients). Thus, perhaps, my model is not very generalizable. This should be explored in future testing. 
 
----
 
 ### Model 3: CNN - Addition of MaxPool2d and Conv2d layers  
 ![model_3_cnn](https://user-images.githubusercontent.com/102309439/178885206-fa92d39e-8557-48cf-b7c8-c731279fa779.png)
@@ -92,7 +84,6 @@ Despite MaxPool2d and Conv2d lowering the previous model's performance, this mod
 We see the test scores increase to 90.1% and recall increase to 89%. 
 ![confusion_matrix_heatmap](https://user-images.githubusercontent.com/102309439/178885258-e63fae72-64ee-4870-8dce-4d03cfe89f46.png)
 
----
 
 ## Conclusion 
 
@@ -100,7 +91,6 @@ A primary recommendation to my stakeholder would be to use this final model as a
 
 This helps address the business problem from multiple angles. It not only saves physicians time and reduces burnout, but it helps inform them specifically where they should expend their time and energy, reducing errors and misdiagnosis. Ultimately, this takes stress off the provider and helps the patient receive the highest-level quality of care. 
 
----
 
 ## Limitations and Next Steps 
 
