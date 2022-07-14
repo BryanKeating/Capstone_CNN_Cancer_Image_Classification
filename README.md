@@ -1,3 +1,4 @@
+![NebraskaMedicineSign062320](https://user-images.githubusercontent.com/102309439/178884966-c471b510-1842-4a58-b66b-1bc69161954c.jpg)
 
 
 # Convolutional Neural Network - Breast Histopathology Image Classification
@@ -30,7 +31,8 @@ After discussing their problems, and the available data, we created the followin
 
 - Create a model that can accurately identify and categorize tissue regions in WSI of breast cancer with over 90% accuracy, and over 90% recall. 
 
-(Image 1)
+![pone 0177544 g001 PNG_L](https://user-images.githubusercontent.com/102309439/178885007-4d9e6e97-2e79-486f-9578-ec934f493fac.png)
+
 
 ## Data Understanding 
 
@@ -39,7 +41,7 @@ According to Kaggle, the original dataset consisted of 162 whole mount slide ima
 
 In order to create a digestible size of data, I randomly selected images and randomly sorted them into my Test, Train, and Validation sets, each containing two subset folders: Cancer and Normal. 
 
-(image 2) 
+![Screen Shot 2022-07-11 at 8 31 14 AM](https://user-images.githubusercontent.com/102309439/178885059-e3811ebe-96ab-4dd6-82c4-9ed42305467f.png)
 
 Test
   - Normal: 773 images 
@@ -62,11 +64,12 @@ In total, there were 3,781 Normal image scans and 4,172 Cancer image scans. I bu
 ### Model 1: Logistic Regression (Simple Baseline Model) 
 After exploring the data and building in extra data generation/image augmentation, the first model I created was a simple logistic regression model. A Logistic regression model estimates the probability of an event occurring, "cancerous" or "normal". This scored surprisingly well, at 83% accuracy and 78% recall. 
 
-(image3) 
+![logistic_regression](https://user-images.githubusercontent.com/102309439/178885112-ad253ea0-f07d-45f8-8374-4e2006191058.png)
 
 ---
 
 ### Model 2: Baseline CNN Model  
+![model_2_cnn_baseline](https://user-images.githubusercontent.com/102309439/178885180-e7fd2dce-e21d-453a-a79f-f22dca0e5443.png)
 
 Moving into deep learning models, the baseline convolution neural network produced some interesting results. The training data scored with 83% accuracy and 95% recall, yet the test data scored with 90% accuracy and 88% recall. 
 
@@ -75,21 +78,19 @@ This could be due to the nature of my data split. In order to create a digestibl
 ---
 
 ### Model 3: CNN - Addition of MaxPool2d and Conv2d layers  
-
-(image 4)
+![model_3_cnn](https://user-images.githubusercontent.com/102309439/178885206-fa92d39e-8557-48cf-b7c8-c731279fa779.png)
 
 In my third model I added MaxPool2d and Conv2d layers. Here we see the training score increase slightly to 84% and the recall decrease to 88%. On the testing data we see the accuracy score decrease to 88% and our recall decrease to 85%.
 
-### Model 4 (Final Model): CNN - Change optimizer, add batch normalization, add padding
-(image 5) 
+### Model 4 (Final Model): CNN - Change optimizer, add batch normalization, add paddin
+![model_4_cnn](https://user-images.githubusercontent.com/102309439/178885232-65ec3c38-4c66-464f-9519-d86ba3a5c7d8.png)
 
 Here we changed our optimizer to rmsprop, added batch normalization and padding. 
 
 Despite MaxPool2d and Conv2d lowering the previous model's performance, this model performed better with those layers still present. 
 
 We see the test scores increase to 90.1% and recall increase to 89%. 
-
-(IMage 6) 
+![confusion_matrix_heatmap](https://user-images.githubusercontent.com/102309439/178885258-e63fae72-64ee-4870-8dce-4d03cfe89f46.png)
 
 ---
 
